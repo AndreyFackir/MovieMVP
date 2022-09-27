@@ -15,6 +15,7 @@ protocol Builder {
   static func createDetailModule(with serial: TVShows?) -> UIViewController
   static func createFavouritesModule() -> UIViewController
   static func createProfileModule() -> UIViewController
+  static func createWebViewModule(movie: Movies?, serial: TVShows?) -> UIViewController 
 }
 
 class ModuleBuilder: Builder {
@@ -64,5 +65,11 @@ class ModuleBuilder: Builder {
     return view
   }
   
+  static func createWebViewModule(movie: Movies?, serial: TVShows?) -> UIViewController {
+    let view = WebViewViewController()
+    let presenter = WebViewPresenter(view: view, movie: movie, serial: serial)
+    view.presenter = presenter
+    return view
+  }
   
 }

@@ -35,6 +35,8 @@
 		81735CCE28CFAA15003F9D3F /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCD28CFAA15003F9D3F /* FavouritesPresenter.swift */; };
 		81735CD028CFAE39003F9D3F /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCF28CFAE39003F9D3F /* ProfilePresenter.swift */; };
 		818F400D28E202B1009E0369 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F400C28E202B1009E0369 /* FavouriteCell.swift */; };
+		818F401228E21957009E0369 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F401128E21957009E0369 /* WebViewViewController.swift */; };
+		818F401428E21A8C009E0369 /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F401328E21A8C009E0369 /* WebViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		81735CCD28CFAA15003F9D3F /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
 		81735CCF28CFAE39003F9D3F /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		818F400C28E202B1009E0369 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
+		818F401128E21957009E0369 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		818F401328E21A8C009E0369 /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				8108AD1828B7EDE500E881DE /* MainModule */,
 				8108AD1D28B7EE5000E881DE /* DetailModule */,
 				8108AD2228B7EE8300E881DE /* FavouritesModule */,
+				818F400E28E21912009E0369 /* WebViewModule */,
 				8108AD2728B7EF0900E881DE /* SettingsModule */,
 				8108AD2F28B7F13700E881DE /* Extensions */,
 				8108AD4328BA25BC00E881DE /* Resources */,
@@ -317,6 +322,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		818F400E28E21912009E0369 /* WebViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				818F400F28E2192A009E0369 /* View */,
+				818F401028E21932009E0369 /* Presenter */,
+			);
+			path = WebViewModule;
+			sourceTree = "<group>";
+		};
+		818F400F28E2192A009E0369 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				818F401128E21957009E0369 /* WebViewViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		818F401028E21932009E0369 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				818F401328E21A8C009E0369 /* WebViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				818F401428E21A8C009E0369 /* WebViewPresenter.swift in Sources */,
 				8108AD3928B7F5C600E881DE /* NetworkService.swift in Sources */,
 				81735CD028CFAE39003F9D3F /* ProfilePresenter.swift in Sources */,
 				8108AD4228B805CA00E881DE /* MainViewController.swift in Sources */,
@@ -399,6 +430,7 @@
 				81735CCA28CFA03F003F9D3F /* ProfileViewController.swift in Sources */,
 				8108AD3328B7F16E00E881DE /* UIColor.swift in Sources */,
 				8108AD5528BD392B00E881DE /* SerialModel.swift in Sources */,
+				818F401228E21957009E0369 /* WebViewViewController.swift in Sources */,
 				8108AD4A28BA27E700E881DE /* DetailPresenter.swift in Sources */,
 				8108AD0328B7ED6D00E881DE /* AppDelegate.swift in Sources */,
 				8108AD3128B7F15C00E881DE /* UIFont.swift in Sources */,

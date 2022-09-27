@@ -102,10 +102,19 @@ class DetailViewController: UIViewController {
     element.backgroundColor = .specialTabBar
     element.setTitleColor(.white, for: .normal)
     element.layer.cornerRadius = 10
-    // element.addTarget(self, action: #selector(watchButtonTapped), for: .touchUpInside)
+    element.addTarget(self, action: #selector(watchButtonTapped), for: .touchUpInside)
     return element
   }()
+  
+  //MARK: - Actions
+  @objc private func watchButtonTapped() {
+    let webView = ModuleBuilder.createWebViewModule(movie: presenter.movie, serial: presenter.serial)
+    webView.hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(webView, animated: true)
+  }
 }
+
+
 
 
 // MARK: - CollectionView
@@ -209,7 +218,7 @@ private extension DetailViewController {
       
       watchButton.topAnchor.constraint(equalTo: castCollection.bottomAnchor, constant: 20),
       watchButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-      watchButton.widthAnchor.constraint(equalTo: containerView.widthAnchor),
+      watchButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.6),
       watchButton.heightAnchor.constraint(equalToConstant: 60)])
   }
 }
@@ -221,7 +230,7 @@ extension DetailViewController: DetailViewProtocol {
   func setDetails(movie: Movies?, serial: TVShows?) {
     if movie == nil {
         filmDescription.text = serial?.overview
-        yearStyleTimeLabel.text = "Release - \(serial?.firstAirDate ?? "")"
+        yearStyleTimeLabel.text = "Date of Release - \(serial?.firstAirDate ?? "")"
         guard let imageUrl = serial?.posterPath else { return }
         let fullImageUrl = Constants.posterUrl + imageUrl
         presenter.getImage(from: fullImageUrl) { image in
@@ -231,7 +240,7 @@ extension DetailViewController: DetailViewProtocol {
         }
     } else {
       filmDescription.text = movie?.overview
-      yearStyleTimeLabel.text = "Release - \(movie?.releaseDate ?? "")"
+      yearStyleTimeLabel.text = "Date of Release - \(movie?.releaseDate ?? "")"
       guard let imageUrl = movie?.posterPath else { return }
       let fullImageUrl = Constants.posterUrl + imageUrl
       presenter.getImage(from: fullImageUrl) { image in

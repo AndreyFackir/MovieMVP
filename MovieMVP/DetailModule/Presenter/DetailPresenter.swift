@@ -19,7 +19,8 @@ protocol DetailViewPresenterProtocol: AnyObject {
   func getImage(from url: String, completion: @escaping(UIImage) -> Void)
   var serialAndMovieCast: SerialAndMoviesCast? { get set }
   func setCast()
-  
+  var movie: Movies? { get }
+  var serial: TVShows? { get }
 }
 
 class DetailPresenter: DetailViewPresenterProtocol {
@@ -68,10 +69,6 @@ class DetailPresenter: DetailViewPresenterProtocol {
       self.view?.success()
     }
   }
-  
-  
-  
-  
   
   
   

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 protocol FavouritesViewProtocol: AnyObject {
   func success()
   func failure(error: Error)
