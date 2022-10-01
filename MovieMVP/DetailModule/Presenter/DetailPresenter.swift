@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol DetailViewProtocol: AnyObject {
   func setDetails(movie: Movies?, serial: TVShows?)
   func success()
   func failure(error: Error)
+  func saveToFavourites()
+  func deleteFromFavourites()
+  func databaseRequest() 
+  
 }
 
 protocol DetailViewPresenterProtocol: AnyObject {
@@ -21,15 +26,22 @@ protocol DetailViewPresenterProtocol: AnyObject {
   func setCast()
   var movie: Movies? { get }
   var serial: TVShows? { get }
+  func saveToFavourites()
+  func removeFromFavourites()
+  func fetch() -> Results<Favourites>
 }
 
 class DetailPresenter: DetailViewPresenterProtocol {
+  
+  
   
   weak var view: DetailViewProtocol?
   let networkDataFetch: NetworkDataFetcherProtocol
   var movie: Movies?
   var serial: TVShows?
   var serialAndMovieCast: SerialAndMoviesCast?
+  let database = try! Realm()
+  var isFavourite = false
   
   
   required init(view: DetailViewProtocol, networkDataFetch: NetworkDataFetcherProtocol, movie: Movies?, serial: TVShows?) {
@@ -55,6 +67,18 @@ class DetailPresenter: DetailViewPresenterProtocol {
     }.resume()
   }
   
+  func getSerialAndMovieString() -> String {
+    if movie == nil {
+      guard let imageUrl = serial?.posterPath else { return ""}
+      let fullImageUrl = Constants.posterUrl + imageUrl
+      return fullImageUrl
+    } else {
+      guard let imageUrl = movie?.posterPath else { return "" }
+      let fullImageUrl = Constants.posterUrl + imageUrl
+      return fullImageUrl
+    }
+  }
+  
   func setCast() {
     var castUrl = ""
     if movie == nil {
@@ -70,6 +94,79 @@ class DetailPresenter: DetailViewPresenterProtocol {
     }
   }
   
+  func fetch() -> Results<Favourites> {
+    database.objects(Favourites.self)
+  }
+  
+  
+  func saveToFavourites() {
+    let favourites = Favourites()
+    
+    if movie == nil {
+      favourites.id = serial?.id ?? 0
+      favourites.favouriteMovieImageUrl = getSerialAndMovieString()
+    } else {
+      favourites.id = movie?.id ?? 0
+      favourites.favouriteMovieImageUrl = getSerialAndMovieString()
+    }
+    
+    if !isFavourite {
+      favourites.isFavourite = true
+      save(object: favourites)
+      print("saved")
+      view?.saveToFavourites()
+      
+    } else {
+      favourites.isFavourite = false
+      delete(id: favourites.id)
+      print("Object was deleted")
+      view?.deleteFromFavourites()
+    }
+    isFavourite = !isFavourite
+    
+  }
+  
+  func removeFromFavourites() {
+    
+    print("removed")
+    view?.deleteFromFavourites()
+  }
+  
+  func save(object: Favourites, _ errorHandler: @escaping ((_ error: Swift.Error) -> Void) = { _ in return }) {
+    let results = fetch()
+    guard !results.contains(where: {$0.id == object.id}) else {
+      update(object: object, errorHandler: errorHandler)
+      return
+    }
+    do {
+      try database.write({
+        database.add(object)
+      })
+    } catch {
+      errorHandler(error)
+    }
+  }
+  
+  func update(object: Favourites, errorHandler: @escaping ((_ error: Swift.Error) -> Void) = { _ in return }) {
+    do {
+      try database.write({
+        database.add(object, update: .modified)
+      })
+    } catch {
+      errorHandler(error)
+    }
+  }
+  
+  func delete(id: Int, errorHandler: @escaping ((_ error: Swift.Error) -> Void) = { _ in return }) {
+    guard let object = database.object(ofType: Favourites.self, forPrimaryKey: id) else { return }
+    do {
+      try database.write({
+        database.delete(object)
+      })
+    } catch {
+      errorHandler(error)
+    }
+  }
   
   
 }

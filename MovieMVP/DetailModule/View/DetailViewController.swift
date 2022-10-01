@@ -16,7 +16,10 @@ class DetailViewController: UIViewController {
     presenter.setDetails()
   }
   
-  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    databaseRequest()
+  }
   
   //MARK: - Properties
   
@@ -112,10 +115,11 @@ class DetailViewController: UIViewController {
     webView.hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(webView, animated: true)
   }
+  
+  @objc private func saveIconTapped() {
+    presenter.saveToFavourites()
+  }
 }
-
-
-
 
 // MARK: - CollectionView
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -144,13 +148,13 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
 
 // MARK: - Setup
 private extension DetailViewController {
-  func setup() {
+  private func setup() {
     setupNavigationBar()
     setupViews()
     setupConstraints()
   }
   
-  func setupNavigationBar() {
+  private func setupNavigationBar() {
     let coloredAppearance = UINavigationBarAppearance()
     coloredAppearance.configureWithOpaqueBackground()
     coloredAppearance.backgroundColor = .specialBackground
@@ -161,13 +165,13 @@ private extension DetailViewController {
     navigationController?.navigationBar.scrollEdgeAppearance = coloredAppearance
     navigationController?.navigationBar.tintColor = .white
     
-    let heartImage = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
+    let heartImage = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(saveIconTapped))
     heartImage.image = UIImage(systemName: "heart")
     heartImage.tintColor = .white
     navigationController?.topViewController?.navigationItem.rightBarButtonItem = heartImage
   }
   
-  func setupViews() {
+  private func setupViews() {
     view.backgroundColor = .specialBackground
     castCollection.register(DetailCell.self, forCellWithReuseIdentifier: "detailCell")
     castCollection.dataSource = self
@@ -227,17 +231,64 @@ private extension DetailViewController {
 
 extension DetailViewController: DetailViewProtocol {
   
+  
+  func saveToFavourites() {
+    
+    let savedImage = navigationController?.topViewController?.navigationItem.rightBarButtonItem
+    savedImage?.tintColor = .red
+    savedImage?.image = UIImage(systemName: "heart.fill")
+    
+  }
+  
+  func deleteFromFavourites() {
+    let savedImage = navigationController?.topViewController?.navigationItem.rightBarButtonItem
+    savedImage?.tintColor = .white
+    savedImage?.image = UIImage(systemName: "heart")
+  }
+  
+  func databaseRequest() {
+    let heartImage = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(saveIconTapped))
+    let results = presenter.fetch()
+    if presenter.movie == nil {
+      guard let favourites = results.first(where: {$0.id == presenter.serial?.id}) else {
+        heartImage.image = UIImage(systemName: "heart")
+        heartImage.tintColor = .white
+        return
+      }
+    } else {
+      guard let favourites = results.first(where: {$0.id == presenter.movie?.id}) else {
+        heartImage.image = UIImage(systemName: "heart")
+        heartImage.tintColor = .white
+        return
+      }
+    }
+    
+    for favourite in results {
+      if favourite.isFavourite{
+        heartImage.image = UIImage(systemName: "heart.fill")
+        heartImage.tintColor = .red
+      } else {
+        heartImage.image = UIImage(systemName: "heart")
+        heartImage.tintColor = .white
+      }
+    }
+    
+    navigationController?.topViewController?.navigationItem.rightBarButtonItem = heartImage
+    
+  }
+  
+  
   func setDetails(movie: Movies?, serial: TVShows?) {
     if movie == nil {
-        filmDescription.text = serial?.overview
-        yearStyleTimeLabel.text = "Date of Release - \(serial?.firstAirDate ?? "")"
-        guard let imageUrl = serial?.posterPath else { return }
-        let fullImageUrl = Constants.posterUrl + imageUrl
-        presenter.getImage(from: fullImageUrl) { image in
-          DispatchQueue.main.async {
-            self.mainImage.image = image
-          }
+      filmDescription.text = serial?.overview
+      yearStyleTimeLabel.text = "Date of Release - \(serial?.firstAirDate ?? "")"
+      guard let imageUrl = serial?.posterPath else { return }
+      let fullImageUrl = Constants.posterUrl + imageUrl
+      presenter.getImage(from: fullImageUrl) { image in
+        DispatchQueue.main.async {
+          self.mainImage.image = image
         }
+      }
     } else {
       filmDescription.text = movie?.overview
       yearStyleTimeLabel.text = "Date of Release - \(movie?.releaseDate ?? "")"
@@ -258,7 +309,4 @@ extension DetailViewController: DetailViewProtocol {
   func failure(error: Error) {
     print(error.localizedDescription)
   }
-  
- 
-  
 }

@@ -7,6 +7,7 @@
 
 
 import UIKit
+import RealmSwift
 
 protocol MainViewProtocol: AnyObject {
   func success()
@@ -21,6 +22,7 @@ protocol MainViewPresenterProtocol: AnyObject {
   var serials: SerialModel? { get set }
   func convertedDateFormat(sourceString: String, sourceFormat: String, destinationFormat: String) -> String
   func getImage(from url: String, completion: @escaping(UIImage) -> Void)
+  func fetch() -> Results<Favourites>
 }
 
 class MainPresenter: MainViewPresenterProtocol {
@@ -28,8 +30,8 @@ class MainPresenter: MainViewPresenterProtocol {
   let netWorkDataFetch: NetworkDataFetcherProtocol
   var movies: MovieModel?
   var serials: SerialModel?
+  let database = try! Realm()
  
-  
   required init(view: MainViewProtocol, networkDataFetch: NetworkDataFetcherProtocol) {
     self.view = view
     self.netWorkDataFetch = networkDataFetch
@@ -74,5 +76,9 @@ class MainPresenter: MainViewPresenterProtocol {
         }
       }.resume()
     }
+  
+  func fetch() -> Results<Favourites> {
+    database.objects(Favourites.self)
+  }
   
 }

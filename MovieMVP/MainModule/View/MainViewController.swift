@@ -8,10 +8,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
-  var presenter: MainViewPresenterProtocol!
   
-  //для коллекции
-  private let idCell = "idCell"
+  var presenter: MainViewPresenterProtocol!
   private let header = "Header"
   
   enum Section: String, CaseIterable {
@@ -21,8 +19,12 @@ class MainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViews()
-    setConstraints()
+    setup()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    collectionView.reloadData()
   }
   
   //MARK: - Properties
@@ -68,8 +70,14 @@ class MainViewController: UIViewController {
     collection.backgroundColor = .specialBackground
     return collection
   }()
+}
+//MARK: - Setup
+extension MainViewController {
+  private func setup() {
+    setupViews()
+    setConstraints()
+  }
   
-  //MARK: - setupViews
   private func setupViews() {
     view.backgroundColor = .specialBackground
     view.addSubview(nameAppLable)
@@ -80,10 +88,8 @@ class MainViewController: UIViewController {
                             withReuseIdentifier: header)
     collectionView.delegate = self
     collectionView.dataSource = self
-    
   }
   
-  //MARK: - setConstraints
   private func setConstraints() {
     NSLayoutConstraint.activate([
       nameAppLable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
@@ -94,6 +100,7 @@ class MainViewController: UIViewController {
       collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),
       collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -15)])
   }
+  
 }
 
 //MARK: - UICollectionViewDataSource
@@ -118,8 +125,15 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "idCell", for: indexPath) as? MainCollectionViewCell else { return .init()}
     let movies = presenter.movies?.results[indexPath.row]
     let serials = presenter.serials?.results[indexPath.row]
+    let results = presenter.fetch()
     switch indexPath.section {
       case 0:
+        for favourites in results {
+          if favourites.id == movies?.id {
+            cell.savedImage.image = UIImage(systemName: "heart.fill")
+            cell.savedImage.tintColor = .red
+          }
+        }
         cell.footerLabel.text = movies?.originalTitle
         let convertedDate = presenter.convertedDateFormat(sourceString: movies?.releaseDate ?? "",
                                                           sourceFormat: "yyyy-MM-dd",
@@ -133,6 +147,12 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
           }
         }
       default:
+        for favourites in results {
+          if favourites.id == serials?.id {
+            cell.savedImage.image = UIImage(systemName: "heart.fill")
+            cell.savedImage.tintColor = .red
+          }
+        }
         cell.footerLabel.text = serials?.name
         let convertedDate = presenter.convertedDateFormat(sourceString: serials?.firstAirDate ?? "",
                                                           sourceFormat: "yyyy-MM-dd",
@@ -151,9 +171,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
   
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     
-    let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                 withReuseIdentifier: header,
-                                                                 for: indexPath) as! TitleSupplementaryView
+    let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header, for: indexPath) as! TitleSupplementaryView
     header.backgroundColor = .specialBackground
     header.headerLabel.text = Section.allCases[indexPath.section].rawValue
     return header

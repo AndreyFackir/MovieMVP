@@ -22,7 +22,7 @@ class MainTabbarViewController: UITabBarController {
     layer.path = UIBezierPath(roundedRect: CGRect(x: positionX, y: tabBar.bounds.minY - positionY,
                                                   width: tabBar.bounds.width - positionX * 2,
                                                   height: tabBar.bounds.height + positionY * 2),
-                              cornerRadius: (tabBar.frame.width / 2)).cgPath
+                                                  cornerRadius: (tabBar.frame.width / 2)).cgPath
     layer.shadowColor = UIColor.lightGray.cgColor
     layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
     layer.shadowRadius = 25

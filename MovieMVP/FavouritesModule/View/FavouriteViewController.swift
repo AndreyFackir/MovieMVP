@@ -6,15 +6,23 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FavouriteViewController: UIViewController {
   var presenter: FavouritesViewPresenterProtocol!
+ 
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    
+    presenter.showFavourites()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      success()
+  }
+  
   
   //MARK: - Properties
   
@@ -43,7 +51,7 @@ class FavouriteViewController: UIViewController {
 }
 //MARK: - Setup
 private extension FavouriteViewController {
-  func setup() {
+  private func setup() {
     setupViews()
     setConstraints()
     setupNavBar()
@@ -80,21 +88,27 @@ private extension FavouriteViewController {
 
 extension FavouriteViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    5
+   
+    return presenter.fetchFavourites().count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favouriteCell", for: indexPath) as? FavouriteCell else { return .init() }
-    cell.backgroundColor = .blue
+    let model = presenter.fetchFavourites()[indexPath.row]
+    let fullImageUrl = Constants.posterUrl + model.favouriteMovieImageUrl
+    presenter.getImage(from: fullImageUrl) { image in
+      DispatchQueue.main.async {
+        cell.image.image = image
+      }
+    }
     return cell
   }
-  
   
 }
 //MARK: - FavouritesViewProtocol
 extension FavouriteViewController: FavouritesViewProtocol {
   func success() {
-    print("FAFA")
+    favouriteCollection.reloadData()
   }
   
   func failure(error: Error) {

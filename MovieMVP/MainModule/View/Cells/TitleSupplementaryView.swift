@@ -23,7 +23,6 @@ class TitleSupplementaryView: UICollectionReusableView {
   override func layoutSubviews() {
     super.layoutSubviews()
     headerLabel.frame = bounds
-    
   }
   
   func configure() {

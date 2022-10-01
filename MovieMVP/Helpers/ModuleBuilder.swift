@@ -59,8 +59,7 @@ class ModuleBuilder: Builder {
   
   static func createProfileModule() -> UIViewController {
     let view = ProfileViewController()
-    let networkDataFetcher = NetworkDataFetcher()
-    let presenter = ProfilePresenter(view: view, networkDataFetch: networkDataFetcher)
+    let presenter = ProfilePresenter(view: view)
     view.presenter = presenter
     return view
   }

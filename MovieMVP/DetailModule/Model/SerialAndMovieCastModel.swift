@@ -8,19 +8,19 @@
 import Foundation
 
 struct SerialAndMoviesCast: Codable {
-    let cast: [SerialAndMoviesCastModel]
-    
+  let cast: [SerialAndMoviesCastModel]
+  
 }
 
 struct SerialAndMoviesCastModel: Codable {
-    let name: String
-    let character: String?
-    let profilePath: String?
+  let name: String
+  let character: String?
+  let profilePath: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case name, character
+    case profilePath = "profile_path"
     
-    enum CodingKeys: String, CodingKey {
-        case name, character
-        case profilePath = "profile_path"
-        
-    }
+  }
 }
 

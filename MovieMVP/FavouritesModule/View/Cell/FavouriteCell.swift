@@ -19,7 +19,7 @@ class FavouriteCell: UICollectionViewCell {
   }
   
   //MARK: - Properties
-  private let image: UIImageView = {
+    let image: UIImageView = {
     let element = UIImageView()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.image = UIImage(systemName: "film.stack")

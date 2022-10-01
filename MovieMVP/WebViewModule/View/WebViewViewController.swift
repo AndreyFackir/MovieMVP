@@ -24,7 +24,6 @@ class WebViewViewController: UIViewController {
     element.translatesAutoresizingMaskIntoConstraints = false
     return element
   }()
-  
 }
 
 //MARK: - Setup
@@ -33,6 +32,7 @@ private extension WebViewViewController {
     setupViews()
     setConstraints()
   }
+  
   private func setupViews() {
     view.addSubview(webView)
   }

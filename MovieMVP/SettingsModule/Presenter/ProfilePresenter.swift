@@ -7,22 +7,29 @@
 
 import Foundation
 protocol ProfileViewProtocol: AnyObject {
-  func success()
-  func failure(error: Error)
+ func nigntModeOn()
 }
 
 protocol ProfileViewPresenterProtocol: AnyObject {
-  init(view: ProfileViewProtocol, networkDataFetch: NetworkDataFetcherProtocol)
+  init(view: ProfileViewProtocol)
+  func turnNightModeOn()
   
 }
 
 class ProfilePresenter: ProfileViewPresenterProtocol {
+ 
   weak var view: ProfileViewProtocol?
-  let networkDataFetch: NetworkDataFetcherProtocol
   
-  required init(view: ProfileViewProtocol, networkDataFetch: NetworkDataFetcherProtocol) {
+  
+  required init(view: ProfileViewProtocol) {
     self.view = view
-    self.networkDataFetch = networkDataFetch
   }
+  
+  func turnNightModeOn() {
+   
+    print("turnNightModeOn")
+    view?.nigntModeOn()
+  }
+  
 }
 
