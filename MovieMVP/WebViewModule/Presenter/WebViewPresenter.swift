@@ -37,7 +37,6 @@ class WebViewPresenter: WebViewPresenterProtocol {
     } else {
       webUrl = "https://www.themoviedb.org/movie/\(movie?.id ?? 0)/watch"
     }
-    
     view?.makeRequest(with: webUrl)
   }
 }

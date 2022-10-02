@@ -56,7 +56,6 @@ class DetailViewController: UIViewController {
   let filmDescription: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.text = "Wonder Woman squares off against Maxwell Lord and the Cheetah, a villainess who possesses superhuman strength and guilty"
     element.textColor = .specialDesription
     element.font = .specialDescription
     element.numberOfLines = 0
@@ -231,13 +230,10 @@ private extension DetailViewController {
 
 extension DetailViewController: DetailViewProtocol {
   
-  
   func saveToFavourites() {
-    
     let savedImage = navigationController?.topViewController?.navigationItem.rightBarButtonItem
     savedImage?.tintColor = .red
     savedImage?.image = UIImage(systemName: "heart.fill")
-    
   }
   
   func deleteFromFavourites() {
@@ -250,21 +246,25 @@ extension DetailViewController: DetailViewProtocol {
     let heartImage = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(saveIconTapped))
     let results = presenter.fetch()
     if presenter.movie == nil {
-      guard let favourites = results.first(where: {$0.id == presenter.serial?.id}) else {
+      guard let favourites = results.first(where: { $0.id == presenter.serial?.id }) else {
         heartImage.image = UIImage(systemName: "heart")
         heartImage.tintColor = .white
         return
       }
+      presenter.isFavourite = favourites.isFavourite
     } else {
       guard let favourites = results.first(where: {$0.id == presenter.movie?.id}) else {
         heartImage.image = UIImage(systemName: "heart")
         heartImage.tintColor = .white
         return
       }
+      presenter.isFavourite = favourites.isFavourite
     }
     
+    
     for favourite in results {
-      if favourite.isFavourite{
+    
+      if favourite.isFavourite {
         heartImage.image = UIImage(systemName: "heart.fill")
         heartImage.tintColor = .red
       } else {
@@ -274,6 +274,7 @@ extension DetailViewController: DetailViewProtocol {
     }
     
     navigationController?.topViewController?.navigationItem.rightBarButtonItem = heartImage
+    
     
   }
   

@@ -14,20 +14,20 @@ protocol DetailViewProtocol: AnyObject {
   func failure(error: Error)
   func saveToFavourites()
   func deleteFromFavourites()
-  func databaseRequest() 
+  func databaseRequest()
   
 }
 
 protocol DetailViewPresenterProtocol: AnyObject {
   init(view: DetailViewProtocol, networkDataFetch: NetworkDataFetcherProtocol, movie: Movies?, serial: TVShows?)
-  func setDetails()
-  func getImage(from url: String, completion: @escaping(UIImage) -> Void)
   var serialAndMovieCast: SerialAndMoviesCast? { get set }
-  func setCast()
   var movie: Movies? { get }
   var serial: TVShows? { get }
+  var isFavourite: Bool { get set }
+  func setDetails()
+  func getImage(from url: String, completion: @escaping(UIImage) -> Void)
+  func setCast()
   func saveToFavourites()
-  func removeFromFavourites()
   func fetch() -> Results<Favourites>
 }
 
@@ -98,10 +98,9 @@ class DetailPresenter: DetailViewPresenterProtocol {
     database.objects(Favourites.self)
   }
   
-  
   func saveToFavourites() {
     let favourites = Favourites()
-    
+   
     if movie == nil {
       favourites.id = serial?.id ?? 0
       favourites.favouriteMovieImageUrl = getSerialAndMovieString()
@@ -110,28 +109,24 @@ class DetailPresenter: DetailViewPresenterProtocol {
       favourites.favouriteMovieImageUrl = getSerialAndMovieString()
     }
     
+    
     if !isFavourite {
       favourites.isFavourite = true
       save(object: favourites)
       print("saved")
       view?.saveToFavourites()
-      
     } else {
       favourites.isFavourite = false
       delete(id: favourites.id)
       print("Object was deleted")
       view?.deleteFromFavourites()
     }
+   
     isFavourite = !isFavourite
+    print(isFavourite)
     
   }
-  
-  func removeFromFavourites() {
-    
-    print("removed")
-    view?.deleteFromFavourites()
-  }
-  
+ 
   func save(object: Favourites, _ errorHandler: @escaping ((_ error: Swift.Error) -> Void) = { _ in return }) {
     let results = fetch()
     guard !results.contains(where: {$0.id == object.id}) else {
@@ -167,6 +162,4 @@ class DetailPresenter: DetailViewPresenterProtocol {
       errorHandler(error)
     }
   }
-  
-  
 }
