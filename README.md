@@ -9,6 +9,7 @@ A movie application built with Swift 5 and UIKit where the user can watch newest
  ---
  - **MVP architecture**
  - **Full programmatically UI (no storyboard)**
+ - CollectionView Compositional Layout
  - Fetching data from  **The Movie Database (TMDB)**
  - Using **Realm** to save data
  - See detailed info about movie or TVShow
