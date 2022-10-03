@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     databaseRequest()
+    success()
   }
   
   //MARK: - Properties
@@ -159,11 +160,9 @@ private extension DetailViewController {
     coloredAppearance.backgroundColor = .specialBackground
     coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
     coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-    
     navigationController?.navigationBar.standardAppearance = coloredAppearance
     navigationController?.navigationBar.scrollEdgeAppearance = coloredAppearance
     navigationController?.navigationBar.tintColor = .white
-    
     let heartImage = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(saveIconTapped))
     heartImage.image = UIImage(systemName: "heart")
     heartImage.tintColor = .white
@@ -261,9 +260,7 @@ extension DetailViewController: DetailViewProtocol {
       presenter.isFavourite = favourites.isFavourite
     }
     
-    
     for favourite in results {
-    
       if favourite.isFavourite {
         heartImage.image = UIImage(systemName: "heart.fill")
         heartImage.tintColor = .red
@@ -272,12 +269,8 @@ extension DetailViewController: DetailViewProtocol {
         heartImage.tintColor = .white
       }
     }
-    
     navigationController?.topViewController?.navigationItem.rightBarButtonItem = heartImage
-    
-    
   }
-  
   
   func setDetails(movie: Movies?, serial: TVShows?) {
     if movie == nil {

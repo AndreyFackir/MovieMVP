@@ -42,13 +42,13 @@ class MainTabbarViewController: UITabBarController {
   }
   
   private func setupItems() {
-    let mainVC = UINavigationController(rootViewController: ModuleBuilder.createMainModule())
-    let preofileVC = UINavigationController(rootViewController: ModuleBuilder.createProfileModule())
+    let mainVC = UINavigationController(rootViewController: ModuleBuilder.createMainModule()) 
+    let profileVC = UINavigationController(rootViewController: ModuleBuilder.createProfileModule())
     let favouriteVC = UINavigationController(rootViewController: ModuleBuilder.createFavouritesModule())
-    setViewControllers([mainVC, favouriteVC, preofileVC], animated: true)
+    setViewControllers([mainVC, favouriteVC, profileVC], animated: true)
     
     guard let items = tabBar.items else { return }
-   
+    
     items[0].title = "Main"
     items[1].title = "Favourites"
     items[2].title = "Settings"

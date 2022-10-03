@@ -16,10 +16,10 @@ protocol MainViewProtocol: AnyObject {
 
 protocol MainViewPresenterProtocol: AnyObject {
   init(view: MainViewProtocol, networkDataFetch: NetworkDataFetcherProtocol)
-  func getMovies()
-  func getSerials()
   var movies: MovieModel? { get set }
   var serials: SerialModel? { get set }
+  func getMovies()
+  func getSerials()
   func convertedDateFormat(sourceString: String, sourceFormat: String, destinationFormat: String) -> String
   func getImage(from url: String, completion: @escaping(UIImage) -> Void)
   func fetch() -> Results<Favourites>
@@ -80,5 +80,4 @@ class MainPresenter: MainViewPresenterProtocol {
   func fetch() -> Results<Favourites> {
     database.objects(Favourites.self)
   }
-  
 }

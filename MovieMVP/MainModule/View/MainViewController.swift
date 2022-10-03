@@ -24,7 +24,13 @@ class MainViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    collectionView.reloadData()
+    success()
+    navigationController?.setNavigationBarHidden(true, animated: animated)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      navigationController?.setNavigationBarHidden(false, animated: animated)
   }
   
   //MARK: - Properties
@@ -100,7 +106,6 @@ extension MainViewController {
       collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),
       collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -15)])
   }
-  
 }
 
 //MARK: - UICollectionViewDataSource

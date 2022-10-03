@@ -25,7 +25,6 @@ class FavouritesPresenter: FavouritesViewPresenterProtocol {
   let networkDataFetch: NetworkDataFetcherProtocol
   let database = try! Realm()
   
-  
   required init(view: FavouritesViewProtocol, networkDataFetch: NetworkDataFetcherProtocol) {
     self.view = view
     self.networkDataFetch = networkDataFetch
@@ -47,8 +46,6 @@ class FavouritesPresenter: FavouritesViewPresenterProtocol {
   }
   
   func showFavourites()  {
-    
-    fetchFavourites()
     print("showFavourites")
     view?.success()
   }

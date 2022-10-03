@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DetailCell: UICollectionViewCell {
+class DetailCell: UICollectionViewCell {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -24,12 +24,12 @@ final class DetailCell: UICollectionViewCell {
   let actorRealName = UILabel()
   let actorRole = UILabel()
   
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    actorImage.image = nil
-    actorRealName.text = nil
-    actorRole.text = nil
-  }
+//  override func prepareForReuse() {
+//    super.prepareForReuse()
+//    actorImage.image = nil
+//    actorRealName.text = nil
+//    actorRole.text = nil
+//  }
   
   //MARK: - Actions
   private func configureCell() {

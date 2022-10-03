@@ -60,5 +60,4 @@ private extension FavouriteCell {
       savedImage.topAnchor.constraint(equalTo: topAnchor, constant: 5),
       savedImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)])
   }
-  
 }

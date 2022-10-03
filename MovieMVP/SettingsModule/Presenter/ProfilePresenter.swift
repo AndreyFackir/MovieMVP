@@ -7,29 +7,34 @@
 
 import Foundation
 protocol ProfileViewProtocol: AnyObject {
- func nigntModeOn()
+  func nigntModeOn()
+  func nigntModeOff()
 }
 
 protocol ProfileViewPresenterProtocol: AnyObject {
   init(view: ProfileViewProtocol)
   func turnNightModeOn()
-  
+  func turnNightModeOff()
 }
 
 class ProfilePresenter: ProfileViewPresenterProtocol {
- 
-  weak var view: ProfileViewProtocol?
   
+  weak var view: ProfileViewProtocol?
   
   required init(view: ProfileViewProtocol) {
     self.view = view
   }
   
   func turnNightModeOn() {
-   
     print("turnNightModeOn")
     view?.nigntModeOn()
   }
+  
+  func turnNightModeOff() {
+    print("turnNightModeOff")
+    view?.nigntModeOff()
+  }
+  
   
 }
 

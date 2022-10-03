@@ -10,17 +10,10 @@ import UIKit
 class ProfileViewController: UIViewController {
   
   var presenter: ProfileViewPresenterProtocol!
-  let userDefaults = UserDefaults.standard
-  
+ 
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    presenter.turnNightModeOn()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    switchNightMode.isOn = userDefaults.bool(forKey: "night")
   }
   
   //MARK: - Properties
@@ -29,6 +22,7 @@ class ProfileViewController: UIViewController {
     let element = UISwitch()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.isOn = false
+    element.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
     return element
   }()
   
@@ -40,8 +34,15 @@ class ProfileViewController: UIViewController {
     element.textColor = .white
     return element
   }()
- 
   
+  //MARK: - Actions
+  @objc private func switchValueChanged() {
+    if switchNightMode.isOn {
+      presenter.turnNightModeOn()
+    } else {
+      presenter.turnNightModeOff()
+    }
+  }
 }
 //MARK: - Setup
 
@@ -49,6 +50,7 @@ private extension ProfileViewController {
   func setup() {
     setupViews()
     setConstraints()
+    setupNavBar()
   }
   private func setupViews() {
     title = "Settings"
@@ -64,15 +66,25 @@ private extension ProfileViewController {
       switchNightMode.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
       switchNightMode.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)])
   }
+  
+  private func setupNavBar() {
+    let coloredAppearance = UINavigationBarAppearance()
+    coloredAppearance.configureWithOpaqueBackground()
+    coloredAppearance.backgroundColor = .specialBackground
+    coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+    coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    navigationController?.navigationBar.standardAppearance = coloredAppearance
+    navigationController?.navigationBar.scrollEdgeAppearance = coloredAppearance
+    navigationController?.navigationBar.tintColor = UIColor.white
+  }
 }
 //MARK: - ProfileViewProtocol
 extension ProfileViewController: ProfileViewProtocol {
   func nigntModeOn() {
-    if switchNightMode.isOn {
-      UserDefaults.standard.set(true, forKey: "night")
-    } else {
-      UserDefaults.standard.set(false, forKey: "night")
-    }
+   print("on")
   }
   
+  func nigntModeOff() {
+    print("off")
+  }
 }

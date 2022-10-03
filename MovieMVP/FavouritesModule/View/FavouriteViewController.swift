@@ -11,7 +11,6 @@ import RealmSwift
 class FavouriteViewController: UIViewController {
   var presenter: FavouritesViewPresenterProtocol!
  
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
@@ -45,10 +44,8 @@ class FavouriteViewController: UIViewController {
     collection.backgroundColor = .specialBackground
     return collection
   }()
-  
-  
-  
 }
+
 //MARK: - Setup
 private extension FavouriteViewController {
   private func setup() {
@@ -88,7 +85,6 @@ private extension FavouriteViewController {
 
 extension FavouriteViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-   
     return presenter.fetchFavourites().count
   }
   
@@ -103,7 +99,6 @@ extension FavouriteViewController: UICollectionViewDataSource {
     }
     return cell
   }
-  
 }
 //MARK: - FavouritesViewProtocol
 extension FavouriteViewController: FavouritesViewProtocol {
