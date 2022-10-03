@@ -109,7 +109,6 @@ class DetailPresenter: DetailViewPresenterProtocol {
       favourites.favouriteMovieImageUrl = getSerialAndMovieString()
     }
     
-    
     if !isFavourite {
       favourites.isFavourite = true
       save(object: favourites)
@@ -121,10 +120,7 @@ class DetailPresenter: DetailViewPresenterProtocol {
       print("Object was deleted")
       view?.deleteFromFavourites()
     }
-   
     isFavourite = !isFavourite
-    print(isFavourite)
-    
   }
  
   func save(object: Favourites, _ errorHandler: @escaping ((_ error: Swift.Error) -> Void) = { _ in return }) {
