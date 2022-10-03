@@ -100,7 +100,6 @@ class DetailPresenter: DetailViewPresenterProtocol {
   
   func saveToFavourites() {
     let favourites = Favourites()
-   
     if movie == nil {
       favourites.id = serial?.id ?? 0
       favourites.favouriteMovieImageUrl = getSerialAndMovieString()
