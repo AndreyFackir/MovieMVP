@@ -24,12 +24,12 @@ class DetailCell: UICollectionViewCell {
   let actorRealName = UILabel()
   let actorRole = UILabel()
   
-//  override func prepareForReuse() {
-//    super.prepareForReuse()
-//    actorImage.image = nil
-//    actorRealName.text = nil
-//    actorRole.text = nil
-//  }
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    actorImage.image = nil
+    actorRealName.text = nil
+    actorRole.text = nil
+  }
   
   //MARK: - Actions
   private func configureCell() {
@@ -38,9 +38,8 @@ class DetailCell: UICollectionViewCell {
     addSubview(actorRole)
     
     actorImage.translatesAutoresizingMaskIntoConstraints = false
-    actorImage.layer.cornerRadius = actorImage.frame.width / 2
     actorImage.image = UIImage(systemName: "person")
-    actorImage.layer.cornerRadius = actorImage.bounds.width / 2
+    actorImage.layer.cornerRadius = frame.width / 2
     actorImage.clipsToBounds = true
     actorImage.contentMode = .scaleAspectFill
     
@@ -56,7 +55,6 @@ class DetailCell: UICollectionViewCell {
     actorRole.numberOfLines = 0
     actorRole.textAlignment = .center
     actorRole.textColor = .white
-    actorRole.textAlignment = .center
     actorRole.font = UIFont.preferredFont(forTextStyle: .caption2)
     
     NSLayoutConstraint.activate([

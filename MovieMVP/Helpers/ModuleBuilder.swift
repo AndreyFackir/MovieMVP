@@ -24,7 +24,7 @@ class ModuleBuilder: Builder {
     let view = MainTabbarViewController()
     return view
   }
-  
+ 
   static func createMainModule() -> UIViewController {
     let view = MainViewController()
     let netWorkDataFetcher = NetworkDataFetcher()

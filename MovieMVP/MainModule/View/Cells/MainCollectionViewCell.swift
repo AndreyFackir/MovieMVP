@@ -24,6 +24,14 @@ class MainCollectionViewCell: UICollectionViewCell {
   let dateOfReleaseLabel = UILabel()
   let savedImage = UIImageView()
   
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    imageView.image = nil
+    footerLabel.text = nil
+    dateOfReleaseLabel.text = nil
+    savedImage.image = nil
+  }
+  
   //MARK: - Actions
   private func configure() {
     addSubview(imageView)

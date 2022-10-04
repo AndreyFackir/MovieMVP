@@ -133,13 +133,11 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     let cast = presenter.serialAndMovieCast?.cast[indexPath.row]
     cell.actorRole.text = cast?.character
     cell.actorRealName.text = cast?.name
-    guard let imageUrl = cast?.profilePath else { return .init()}
+    guard let imageUrl = cast?.profilePath else { return cell}
     let actorFullImage = Constants.posterUrl + imageUrl
     presenter.getImage(from: actorFullImage) { image in
       DispatchQueue.main.async {
         cell.actorImage.image = image
-        cell.actorImage.layer.cornerRadius = cell.frame.width / 2
-        cell.actorImage.clipsToBounds = true
       }
     }
     return cell
@@ -171,9 +169,6 @@ private extension DetailViewController {
   
   private func setupViews() {
     view.backgroundColor = .specialBackground
-    castCollection.register(DetailCell.self, forCellWithReuseIdentifier: "detailCell")
-    castCollection.dataSource = self
-    castCollection.delegate = self
     view.addSubview(scrollView)
     scrollView.addSubview(containerView)
     containerView.addSubview(mainImage)
@@ -182,6 +177,9 @@ private extension DetailViewController {
     containerView.addSubview(castLabel)
     containerView.addSubview(castCollection)
     containerView.addSubview(watchButton)
+    castCollection.register(DetailCell.self, forCellWithReuseIdentifier: "detailCell")
+    castCollection.dataSource = self
+    castCollection.delegate = self
   }
   
   private func setupConstraints() {
