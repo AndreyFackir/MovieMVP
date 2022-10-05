@@ -35,6 +35,7 @@
 		8164D7C428ECAD7F00659D31 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164D7C328ECAD7F00659D31 /* OnboardingModel.swift */; };
 		8164D7C628ECADF100659D31 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164D7C528ECADF100659D31 /* OnboardingViewController.swift */; };
 		8164D7C828ECB3A700659D31 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164D7C728ECB3A700659D31 /* OnboardingCell.swift */; };
+		8164D7CA28EE155900659D31 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164D7C928EE155900659D31 /* OnboardingPresenter.swift */; };
 		81735CC828CF9E58003F9D3F /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CC728CF9E58003F9D3F /* MainTabbarViewController.swift */; };
 		81735CCA28CFA03F003F9D3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CC928CFA03F003F9D3F /* ProfileViewController.swift */; };
 		81735CCC28CFA06F003F9D3F /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCB28CFA06F003F9D3F /* FavouriteViewController.swift */; };
@@ -74,6 +75,7 @@
 		8164D7C328ECAD7F00659D31 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		8164D7C528ECADF100659D31 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8164D7C728ECB3A700659D31 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		8164D7C928EE155900659D31 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		81735CC728CF9E58003F9D3F /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
 		81735CC928CFA03F003F9D3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		81735CCB28CFA06F003F9D3F /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		8164D7C228ECAD6400659D31 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				8164D7C928EE155900659D31 /* OnboardingPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				8108AD4A28BA27E700E881DE /* DetailPresenter.swift in Sources */,
 				8108AD0328B7ED6D00E881DE /* AppDelegate.swift in Sources */,
 				8108AD3128B7F15C00E881DE /* UIFont.swift in Sources */,
+				8164D7CA28EE155900659D31 /* OnboardingPresenter.swift in Sources */,
 				81735CCE28CFAA15003F9D3F /* FavouritesPresenter.swift in Sources */,
 				8108AD4028B7FD3C00E881DE /* Constants.swift in Sources */,
 				8108AD3E28B7FAE700E881DE /* MainPresenter.swift in Sources */,

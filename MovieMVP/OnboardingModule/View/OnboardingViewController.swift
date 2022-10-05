@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Network
 
 class OnboardingViewController: UIViewController {
+  
+  var presenter: OnboardingViewPresenterProtocol!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,6 +59,7 @@ class OnboardingViewController: UIViewController {
   
   @objc private func nextButtonTapped() {
     print("nextButtonTapped")
+    presenter.nextButtontapped()
   }
   
 }
@@ -73,6 +77,7 @@ extension OnboardingViewController {
     onboardingCollection.register(OnboardingCell.self, forCellWithReuseIdentifier: "onboardingCell")
     onboardingCollection.dataSource = self
     onboardingCollection.delegate = self
+    
   }
   
   private func setConstraints() {
@@ -100,6 +105,16 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "onboardingCell", for: indexPath) as? OnboardingCell else { return .init()}
+    let model = presenter.onboardingModel[
     return cell
   }
+}
+
+//MARK: - OnboardingViewProtocol
+extension OnboardingViewController: OnboardingViewProtocol {
+  func nextButtontapped() {
+    print("Yes it does")
+  }
+  
+  
 }
