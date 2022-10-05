@@ -32,6 +32,9 @@
 		8164D7B628E5FC6200659D31 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8164D7B528E5FC6200659D31 /* Realm */; };
 		8164D7B828E5FC6200659D31 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8164D7B728E5FC6200659D31 /* RealmSwift */; };
 		8164D7BA28E6001100659D31 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164D7B928E6001100659D31 /* RealmModel.swift */; };
+		8164D7C428ECAD7F00659D31 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164D7C328ECAD7F00659D31 /* OnboardingModel.swift */; };
+		8164D7C628ECADF100659D31 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164D7C528ECADF100659D31 /* OnboardingViewController.swift */; };
+		8164D7C828ECB3A700659D31 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164D7C728ECB3A700659D31 /* OnboardingCell.swift */; };
 		81735CC828CF9E58003F9D3F /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CC728CF9E58003F9D3F /* MainTabbarViewController.swift */; };
 		81735CCA28CFA03F003F9D3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CC928CFA03F003F9D3F /* ProfileViewController.swift */; };
 		81735CCC28CFA06F003F9D3F /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCB28CFA06F003F9D3F /* FavouriteViewController.swift */; };
@@ -68,6 +71,9 @@
 		8108AD5428BD392B00E881DE /* SerialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialModel.swift; sourceTree = "<group>"; };
 		8108AD5628BE9E6C00E881DE /* SerialAndMovieCastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialAndMovieCastModel.swift; sourceTree = "<group>"; };
 		8164D7B928E6001100659D31 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		8164D7C328ECAD7F00659D31 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		8164D7C528ECADF100659D31 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		8164D7C728ECB3A700659D31 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		81735CC728CF9E58003F9D3F /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
 		81735CC928CFA03F003F9D3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		81735CCB28CFA06F003F9D3F /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 				8108AD5228BD377500E881DE /* App */,
 				8108AD5328BD378500E881DE /* Helpers */,
 				8108AD3A28B7F5E200E881DE /* NetworkLayer */,
+				8164D7BD28ECAD2200659D31 /* OnboardingModule */,
 				8108AD1828B7EDE500E881DE /* MainModule */,
 				8108AD1D28B7EE5000E881DE /* DetailModule */,
 				8108AD2228B7EE8300E881DE /* FavouritesModule */,
@@ -337,6 +344,40 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		8164D7BD28ECAD2200659D31 /* OnboardingModule */ = {
+			isa = PBXGroup;
+			children = (
+				8164D7C028ECAD4600659D31 /* Model */,
+				8164D7C128ECAD5300659D31 /* View */,
+				8164D7C228ECAD6400659D31 /* Presenter */,
+			);
+			path = OnboardingModule;
+			sourceTree = "<group>";
+		};
+		8164D7C028ECAD4600659D31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8164D7C328ECAD7F00659D31 /* OnboardingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8164D7C128ECAD5300659D31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8164D7C528ECADF100659D31 /* OnboardingViewController.swift */,
+				8164D7C728ECB3A700659D31 /* OnboardingCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8164D7C228ECAD6400659D31 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		818F400E28E21912009E0369 /* WebViewModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +486,7 @@
 				8164D7BA28E6001100659D31 /* RealmModel.swift in Sources */,
 				8108AD3928B7F5C600E881DE /* NetworkService.swift in Sources */,
 				81735CD028CFAE39003F9D3F /* ProfilePresenter.swift in Sources */,
+				8164D7C428ECAD7F00659D31 /* OnboardingModel.swift in Sources */,
 				8108AD4228B805CA00E881DE /* MainViewController.swift in Sources */,
 				8108AD3728B7F58C00E881DE /* MovieModel.swift in Sources */,
 				8108AD4E28BA2A9300E881DE /* DetailCell.swift in Sources */,
@@ -453,6 +495,7 @@
 				81735CCA28CFA03F003F9D3F /* ProfileViewController.swift in Sources */,
 				8108AD3328B7F16E00E881DE /* UIColor.swift in Sources */,
 				8108AD5528BD392B00E881DE /* SerialModel.swift in Sources */,
+				8164D7C628ECADF100659D31 /* OnboardingViewController.swift in Sources */,
 				818F401228E21957009E0369 /* WebViewViewController.swift in Sources */,
 				8108AD4A28BA27E700E881DE /* DetailPresenter.swift in Sources */,
 				8108AD0328B7ED6D00E881DE /* AppDelegate.swift in Sources */,
@@ -465,6 +508,7 @@
 				8108AD3528B7F1B400E881DE /* TitleSupplementaryView.swift in Sources */,
 				818F400D28E202B1009E0369 /* FavouriteCell.swift in Sources */,
 				8108AD4C28BA29C100E881DE /* DetailViewController.swift in Sources */,
+				8164D7C828ECB3A700659D31 /* OnboardingCell.swift in Sources */,
 				8108AD5728BE9E6C00E881DE /* SerialAndMovieCastModel.swift in Sources */,
 				8108AD0528B7ED6D00E881DE /* SceneDelegate.swift in Sources */,
 				8108AD1728B7EDC000E881DE /* ModuleBuilder.swift in Sources */,
