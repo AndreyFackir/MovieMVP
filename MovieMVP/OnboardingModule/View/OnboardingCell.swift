@@ -11,6 +11,7 @@ class OnboardingCell: UICollectionViewCell {
     
   override init(frame: CGRect) {
     super.init(frame: frame)
+    setup()
   }
   
   required init?(coder: NSCoder) {
@@ -32,7 +33,7 @@ class OnboardingCell: UICollectionViewCell {
     let element = UIImageView()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.image = UIImage(named: "first")
-    element.contentMode = .scaleAspectFill
+    element.contentMode = .scaleAspectFit
     return element
   }()
   
@@ -56,11 +57,12 @@ class OnboardingCell: UICollectionViewCell {
 
 extension OnboardingCell {
   private func setup() {
-    
+    setupViews()
+    setConstraints()
   }
   
   private func setupViews() {
-    backgroundColor = .specialBackground
+    backgroundColor = .black
     addSubview(image)
     addSubview(topLabel)
     addSubview(bottomLabel)
@@ -69,10 +71,11 @@ extension OnboardingCell {
   private func setConstraints() {
     NSLayoutConstraint.activate([
      
-          image.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+      image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
           image.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 0),
           image.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
           image.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
+       
           
           topLabel.topAnchor.constraint(equalTo: topAnchor, constant: 60),
           topLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -83,5 +86,4 @@ extension OnboardingCell {
           bottomLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
           bottomLabel.heightAnchor.constraint(equalToConstant: 85)])
   }
-
 }

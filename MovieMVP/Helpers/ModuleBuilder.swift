@@ -16,7 +16,7 @@ protocol Builder {
   static func createFavouritesModule() -> UIViewController
   static func createProfileModule() -> UIViewController
   static func createWebViewModule(movie: Movies?, serial: TVShows?) -> UIViewController
-  static func createOnboardingModule(onboardingModel: OnboardingModel?) -> UIViewController
+  static func createOnboardingModule() -> UIViewController
 }
 
 class ModuleBuilder: Builder {
@@ -72,9 +72,9 @@ class ModuleBuilder: Builder {
     return view
   }
   
-  static func createOnboardingModule(onboardingModel: OnboardingModel?) -> UIViewController {
+  static func createOnboardingModule() -> UIViewController {
     let view = OnboardingViewController()
-    let presenter = OnboardingPresenter(view: view, onboardingModel: onboardingModel)
+    let presenter = OnboardingPresenter(view: view)
     view.presenter = presenter
     return view
   }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Network
+
 
 class OnboardingViewController: UIViewController {
   
@@ -43,7 +43,7 @@ class OnboardingViewController: UIViewController {
   private let onboardingCollection: UICollectionView = {
     let layout = UICollectionViewCompositionalLayout { setionNumber, environ in
       let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-      let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalHeight(1), heightDimension: .fractionalWidth(1)), subitems: [item])
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)), subitems: [item])
       let section = NSCollectionLayoutSection(group: group)
       section.orthogonalScrollingBehavior = .paging
       return section
@@ -52,6 +52,7 @@ class OnboardingViewController: UIViewController {
     collection.translatesAutoresizingMaskIntoConstraints = false
     collection.backgroundColor = .specialBackground
     collection.showsHorizontalScrollIndicator = false
+    collection.isUserInteractionEnabled = false
     return collection
   }()
   
@@ -100,21 +101,32 @@ extension OnboardingViewController {
 //MARK: - UICollectionViewDataSource
 extension OnboardingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    3
+    presenter.configureScreens().count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "onboardingCell", for: indexPath) as? OnboardingCell else { return .init()}
-    let model = presenter.onboardingModel[
+    let model = presenter.configureScreens()[indexPath.row]
+    print(model)
+    cell.cellConfigure(model: model)
     return cell
   }
 }
 
 //MARK: - OnboardingViewProtocol
 extension OnboardingViewController: OnboardingViewProtocol {
+ 
+  
+  
   func nextButtontapped() {
-    print("Yes it does")
+    nextButton.setTitle("Let's Go", for: .normal)
   }
+  
+  func setPageControlCurrentPage(index: IndexPath, collectionItem: Int) {
+    onboardingCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+    pageControl.currentPage = collectionItem
+  }
+  
   
   
 }
