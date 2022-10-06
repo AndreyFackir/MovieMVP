@@ -12,7 +12,7 @@ A movie application built with Swift 5 and UIKit where the user can watch newest
  - CollectionView Compositional Layout
  - Fetching data from  **The Movie Database (TMDB)**
  - Using **Realm** to save data
- - *UserDefaults* for Onboarding
+ - **UserDefaults** for Onboarding
  - See detailed info about movie or TVShow
  - Posibility to add to Favourites
  - See all favourites movies or TVShows in one screen
