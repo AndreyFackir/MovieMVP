@@ -29,8 +29,14 @@ class MainViewController: UIViewController {
   }
   
   override func viewWillDisappear(_ animated: Bool) {
-      super.viewWillDisappear(animated)
-      navigationController?.setNavigationBarHidden(false, animated: animated)
+    super.viewWillDisappear(animated)
+    navigationController?.setNavigationBarHidden(false, animated: animated)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    presenter.showOnboarding()
+    showOnboarding()
   }
   
   //MARK: - Properties
@@ -200,6 +206,12 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 //MARK: - MainViewProtocol
 extension MainViewController: MainViewProtocol {
+  func showOnboarding() {
+    let onboardingVC = ModuleBuilder.createOnboardingModule()
+    onboardingVC.modalPresentationStyle = .fullScreen
+    present(onboardingVC, animated: true, completion: nil)
+  }
+  
   func success() {
     collectionView.reloadData()
   }

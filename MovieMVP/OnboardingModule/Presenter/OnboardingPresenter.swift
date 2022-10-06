@@ -11,6 +11,7 @@ import UIKit
 protocol OnboardingViewProtocol: AnyObject {
   func nextButtontapped()
   func setPageControlCurrentPage(index: IndexPath, collectionItem: Int)
+  func dismissVC()
 }
 
 protocol OnboardingViewPresenterProtocol: AnyObject {
@@ -36,6 +37,7 @@ class OnboardingPresenter: OnboardingViewPresenterProtocol {
     }
     if collectionItem == 2 {
       saveUserDefaults()
+     
     } else {
       collectionItem += 1
       let index:IndexPath = [0, collectionItem]
@@ -47,6 +49,7 @@ class OnboardingPresenter: OnboardingViewPresenterProtocol {
   func saveUserDefaults() {
     let userDefaults = UserDefaults.standard
     userDefaults.set(true, forKey: "OnboardingWasViewed")
+    view?.dismissVC()
   }
   
   func configureScreens() -> [OnboardingModel] {

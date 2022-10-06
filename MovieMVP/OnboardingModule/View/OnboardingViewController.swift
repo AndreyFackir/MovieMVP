@@ -107,7 +107,6 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "onboardingCell", for: indexPath) as? OnboardingCell else { return .init()}
     let model = presenter.configureScreens()[indexPath.row]
-    print(model)
     cell.cellConfigure(model: model)
     return cell
   }
@@ -115,9 +114,11 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
 
 //MARK: - OnboardingViewProtocol
 extension OnboardingViewController: OnboardingViewProtocol {
+  func dismissVC() {
+    dismiss(animated: true, completion: nil)
+  }
+  
  
-  
-  
   func nextButtontapped() {
     nextButton.setTitle("Let's Go", for: .normal)
   }
