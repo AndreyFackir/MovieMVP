@@ -42,6 +42,7 @@
 		81735CCE28CFAA15003F9D3F /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCD28CFAA15003F9D3F /* FavouritesPresenter.swift */; };
 		81735CD028CFAE39003F9D3F /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCF28CFAE39003F9D3F /* ProfilePresenter.swift */; };
 		81820EC828F2C76200538792 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81820EC728F2C76200538792 /* UILabel.swift */; };
+		81820ECA28F2FE3A00538792 /* GalleryOrFotoAllert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81820EC928F2FE3A00538792 /* GalleryOrFotoAllert.swift */; };
 		818F400D28E202B1009E0369 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F400C28E202B1009E0369 /* FavouriteCell.swift */; };
 		818F401228E21957009E0369 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F401128E21957009E0369 /* WebViewViewController.swift */; };
 		818F401428E21A8C009E0369 /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F401328E21A8C009E0369 /* WebViewPresenter.swift */; };
@@ -83,6 +84,7 @@
 		81735CCD28CFAA15003F9D3F /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
 		81735CCF28CFAE39003F9D3F /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		81820EC728F2C76200538792 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		81820EC928F2FE3A00538792 /* GalleryOrFotoAllert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryOrFotoAllert.swift; sourceTree = "<group>"; };
 		818F400C28E202B1009E0369 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		818F401128E21957009E0369 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		818F401328E21A8C009E0369 /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				8108AD3028B7F15C00E881DE /* UIFont.swift */,
 				8108AD3228B7F16E00E881DE /* UIColor.swift */,
 				81820EC728F2C76200538792 /* UILabel.swift */,
+				81820EC928F2FE3A00538792 /* GalleryOrFotoAllert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				8108AD0328B7ED6D00E881DE /* AppDelegate.swift in Sources */,
 				8108AD3128B7F15C00E881DE /* UIFont.swift in Sources */,
 				8164D7CA28EE155900659D31 /* OnboardingPresenter.swift in Sources */,
+				81820ECA28F2FE3A00538792 /* GalleryOrFotoAllert.swift in Sources */,
 				81735CCE28CFAA15003F9D3F /* FavouritesPresenter.swift in Sources */,
 				8108AD4028B7FD3C00E881DE /* Constants.swift in Sources */,
 				8108AD3E28B7FAE700E881DE /* MainPresenter.swift in Sources */,
