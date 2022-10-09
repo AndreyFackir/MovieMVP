@@ -77,7 +77,7 @@ extension OnboardingCell {
           image.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
        
           
-          topLabel.topAnchor.constraint(equalTo: topAnchor, constant: 60),
+          topLabel.topAnchor.constraint(equalTo: topAnchor, constant: 50),
           topLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
           topLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
       

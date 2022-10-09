@@ -29,7 +29,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     imageView.image = nil
     footerLabel.text = nil
     dateOfReleaseLabel.text = nil
-    savedImage.image = nil
   }
   
   //MARK: - Actions

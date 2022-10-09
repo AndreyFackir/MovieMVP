@@ -41,6 +41,7 @@
 		81735CCC28CFA06F003F9D3F /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCB28CFA06F003F9D3F /* FavouriteViewController.swift */; };
 		81735CCE28CFAA15003F9D3F /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCD28CFAA15003F9D3F /* FavouritesPresenter.swift */; };
 		81735CD028CFAE39003F9D3F /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81735CCF28CFAE39003F9D3F /* ProfilePresenter.swift */; };
+		81820EC828F2C76200538792 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81820EC728F2C76200538792 /* UILabel.swift */; };
 		818F400D28E202B1009E0369 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F400C28E202B1009E0369 /* FavouriteCell.swift */; };
 		818F401228E21957009E0369 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F401128E21957009E0369 /* WebViewViewController.swift */; };
 		818F401428E21A8C009E0369 /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818F401328E21A8C009E0369 /* WebViewPresenter.swift */; };
@@ -81,6 +82,7 @@
 		81735CCB28CFA06F003F9D3F /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		81735CCD28CFAA15003F9D3F /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
 		81735CCF28CFAE39003F9D3F /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		81820EC728F2C76200538792 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		818F400C28E202B1009E0369 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		818F401128E21957009E0369 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		818F401328E21A8C009E0369 /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			children = (
 				8108AD3028B7F15C00E881DE /* UIFont.swift */,
 				8108AD3228B7F16E00E881DE /* UIColor.swift */,
+				81820EC728F2C76200538792 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				81735CD028CFAE39003F9D3F /* ProfilePresenter.swift in Sources */,
 				8164D7C428ECAD7F00659D31 /* OnboardingModel.swift in Sources */,
 				8108AD4228B805CA00E881DE /* MainViewController.swift in Sources */,
+				81820EC828F2C76200538792 /* UILabel.swift in Sources */,
 				8108AD3728B7F58C00E881DE /* MovieModel.swift in Sources */,
 				8108AD4E28BA2A9300E881DE /* DetailCell.swift in Sources */,
 				81735CCC28CFA06F003F9D3F /* FavouriteViewController.swift in Sources */,

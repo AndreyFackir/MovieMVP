@@ -17,7 +17,6 @@ protocol OnboardingViewProtocol: AnyObject {
 protocol OnboardingViewPresenterProtocol: AnyObject {
   init(view: OnboardingViewProtocol)
   func nextButtontapped()
-  func saveUserDefaults()
   func configureScreens() -> [OnboardingModel]
 }
 
@@ -37,7 +36,6 @@ class OnboardingPresenter: OnboardingViewPresenterProtocol {
     }
     if collectionItem == 2 {
       saveUserDefaults()
-     
     } else {
       collectionItem += 1
       let index:IndexPath = [0, collectionItem]

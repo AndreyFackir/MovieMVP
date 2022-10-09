@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     presenter.showOnboarding()
-    showOnboarding()
+   
   }
   
   //MARK: - Properties
