@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 extension UILabel {
-    convenience init(_ text: String = "") {
-        self.init()
-        self.text = text
-        self.self.font = .robotoMedium12
-        self.textColor = .specilaLightBrown
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
+  convenience init(_ text: String = "") {
+    self.init()
+    self.text = text
+    self.self.font = .robotoMedium12
+    self.textColor = .specilaLightBrown
+    self.translatesAutoresizingMaskIntoConstraints = false
+  }
 }

@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     super.viewDidLoad()
     setup()
     presenter.addTapToChooseImage()
+    presenter.loadUserInfo()
   }
   override func viewDidLayoutSubviews() {
     addPhotoImageView.layer.cornerRadius = addPhotoImageView.frame.height / 2
@@ -26,9 +27,7 @@ class ProfileViewController: UIViewController {
     let imageView = UIImageView()
     imageView.backgroundColor = #colorLiteral(red: 0.7607843137, green: 0.7607843137, blue: 0.7607843137, alpha: 1)
     imageView.layer.borderWidth = 5
-    
     imageView.image = UIImage(systemName: "person.crop.circle.badge.plus")
-    
     imageView.clipsToBounds = true
     imageView.contentMode = .center
     imageView.layer.borderColor = UIColor.white.cgColor
@@ -100,6 +99,7 @@ private extension ProfileViewController {
     setupViews()
     setConstraints()
     setupNavBar()
+    
   }
   private func setupViews() {
     title = "Settings"
@@ -114,7 +114,6 @@ private extension ProfileViewController {
   }
   private func setConstraints() {
     NSLayoutConstraint.activate([
-      
       addPhotoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
       addPhotoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       addPhotoImageView.heightAnchor.constraint(equalToConstant: 100),
@@ -158,6 +157,7 @@ private extension ProfileViewController {
     navigationController?.navigationBar.tintColor = UIColor.white
   }
 }
+
 // MARK: - UIImagePickerControllerDelegate
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func chooseImagePicker(source: UIImagePickerController.SourceType) {
@@ -190,8 +190,16 @@ extension ProfileViewController: ProfileViewProtocol {
     alertFotoCamera { [weak self] source in
       guard let self = self else { return }
       self.chooseImagePicker(source: source)
-      print("tapped")
     }
   }
   
+  func loadUserInfo() {
+    let userDefaults = UserDefaults.standard
+    firstNameTextField.text = userDefaults.string(forKey: "name")
+    secondNameTextField.text = userDefaults.string(forKey: "surname")
+    guard let data = userDefaults.object(forKey: "image") else { return }
+    guard let image = UIImage(data: data as! Data) else { return }
+    addPhotoImageView.image = image
+    addPhotoImageView.contentMode = .scaleAspectFit
+  }
 }

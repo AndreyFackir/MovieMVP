@@ -9,16 +9,17 @@ import Foundation
 import UIKit
 protocol ProfileViewProtocol: AnyObject {
   func addTapToChooseImage()
+  func loadUserInfo()
 }
 
 protocol ProfileViewPresenterProtocol: AnyObject {
   init(view: ProfileViewProtocol)
   func saveButtonTapped(name: String, surname: String, image: Data)
   func addTapToChooseImage()
+  func loadUserInfo()
 }
 
 class ProfilePresenter: ProfileViewPresenterProtocol {
-  
   weak var view: ProfileViewProtocol?
   
   required init(view: ProfileViewProtocol) {
@@ -41,5 +42,8 @@ class ProfilePresenter: ProfileViewPresenterProtocol {
     view?.addTapToChooseImage()
   }
   
+  func loadUserInfo() {
+    view?.loadUserInfo()
+  }
 }
 

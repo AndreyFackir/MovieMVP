@@ -118,7 +118,6 @@ extension OnboardingViewController: OnboardingViewProtocol {
     dismiss(animated: true, completion: nil)
   }
   
- 
   func nextButtontapped() {
     nextButton.setTitle("Let's Go", for: .normal)
   }
@@ -127,7 +126,4 @@ extension OnboardingViewController: OnboardingViewProtocol {
     onboardingCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
     pageControl.currentPage = collectionItem
   }
-  
-  
-  
 }

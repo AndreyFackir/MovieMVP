@@ -157,13 +157,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		8108AD1A28B7EDFE00E881DE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		8108AD1C28B7EE2600E881DE /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +230,6 @@
 		8108AD2728B7EF0900E881DE /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
-				8108AD1A28B7EDFE00E881DE /* Model */,
 				8108AD1928B7EDF400E881DE /* View */,
 				8108AD1C28B7EE2600E881DE /* Presenter */,
 			);
