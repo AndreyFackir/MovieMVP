@@ -23,7 +23,7 @@ class OnboardingViewController: UIViewController {
     let element = UIButton(type: .system)
     element.translatesAutoresizingMaskIntoConstraints = false
     element.setTitle("Next", for: .normal)
-    element.titleLabel?.font = .specialOnboardingFont
+    element.titleLabel?.font = .robotoMedium20
     element.layer.cornerRadius = 25
     element.tintColor = .specialBackground
     element.backgroundColor = .white

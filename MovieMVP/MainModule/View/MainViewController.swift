@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
     let element = UILabel()
     element.text = "Movie"
     element.textColor = .white
-    element.font = .specialAppName
+    element.font = .robotoMedium50
     element.translatesAutoresizingMaskIntoConstraints = false
     var mutableString = NSMutableAttributedString()
     mutableString = NSMutableAttributedString(string: element.text ?? "")

@@ -23,7 +23,7 @@ class OnboardingCell: UICollectionViewCell {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.text = "Watch favourites movies and TVShows"
-    element.font = .specialOnboardingFont
+    element.font = .robotoMedium20
     element.textAlignment = .center
     element.textColor = .white
     return element
@@ -42,7 +42,7 @@ class OnboardingCell: UICollectionViewCell {
       element.translatesAutoresizingMaskIntoConstraints = false
       element.text = "Only newest releases"
       element.textColor = .white
-    element.font = .specialDescription
+    element.font = .robotoMedium15
       element.textAlignment = .center
       return element
   }()

@@ -19,7 +19,6 @@ class ProfileViewController: UIViewController {
   }
   override func viewDidLayoutSubviews() {
     addPhotoImageView.layer.cornerRadius = addPhotoImageView.frame.height / 2
-    
   }
   
   //MARK: - Properties
@@ -74,8 +73,9 @@ class ProfileViewController: UIViewController {
   }()
   
   private let saveButton: UIButton = {
-    let element = UIButton()
+    let element = UIButton(type: .system)
     element.setTitle("Save", for: .normal)
+    element.titleLabel?.font = .robotoMedium20
     element.setTitleColor(.white, for: .normal)
     element.translatesAutoresizingMaskIntoConstraints = false
     element.backgroundColor = .specialTabBar

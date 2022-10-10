@@ -28,7 +28,6 @@ class ProfilePresenter: ProfileViewPresenterProtocol {
   
   func saveButtonTapped(name: String, surname: String, image: Data) {
     saveUserDefaults(name: name, surname: surname, image: image)
-    print("saveButton tapped")
   }
   
   func saveUserDefaults(name: String, surname: String, image: Data) {
