@@ -62,9 +62,9 @@ class OnboardingViewController: UIViewController {
     print("nextButtonTapped")
     presenter.nextButtontapped()
   }
-  
 }
 
+// MARK: - Setup
 extension OnboardingViewController {
   private func setup() {
     setupViews()
@@ -77,8 +77,6 @@ extension OnboardingViewController {
     view.addSubview(onboardingCollection)
     onboardingCollection.register(OnboardingCell.self, forCellWithReuseIdentifier: "onboardingCell")
     onboardingCollection.dataSource = self
-    onboardingCollection.delegate = self
-    
   }
   
   private func setConstraints() {
@@ -99,7 +97,7 @@ extension OnboardingViewController {
   }
 }
 //MARK: - UICollectionViewDataSource
-extension OnboardingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension OnboardingViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     presenter.configureScreens().count
   }

@@ -49,7 +49,7 @@ class DetailViewController: UIViewController {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.textColor = .specialDesription
-    element.font = .specialDescription
+    element.font = .robotoMedium15
     element.text = "2020 • Adventure, Action • 2 h 35 min"
     return element
   }()
@@ -58,7 +58,7 @@ class DetailViewController: UIViewController {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.textColor = .specialDesription
-    element.font = .specialDescription
+    element.font = .robotoMedium15
     element.numberOfLines = 0
     return element
   }()
@@ -68,7 +68,7 @@ class DetailViewController: UIViewController {
     element.translatesAutoresizingMaskIntoConstraints = false
     element.text = "Cast"
     element.textColor = .white
-    element.font = .specialDescription
+    element.font = .robotoMedium15
     return element
   }()
   

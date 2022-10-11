@@ -8,7 +8,7 @@
 import UIKit
 
 class OnboardingCell: UICollectionViewCell {
-    
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setup()
@@ -38,13 +38,13 @@ class OnboardingCell: UICollectionViewCell {
   }()
   
   private let bottomLabel: UILabel = {
-      let element = UILabel()
-      element.translatesAutoresizingMaskIntoConstraints = false
-      element.text = "Only newest releases"
-      element.textColor = .white
+    let element = UILabel()
+    element.translatesAutoresizingMaskIntoConstraints = false
+    element.text = "Only newest releases"
+    element.textColor = .white
     element.font = .robotoMedium15
-      element.textAlignment = .center
-      return element
+    element.textAlignment = .center
+    return element
   }()
   
   //MARK: - Action
@@ -70,20 +70,20 @@ extension OnboardingCell {
   
   private func setConstraints() {
     NSLayoutConstraint.activate([
-     
-      image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
-          image.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 0),
-          image.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-          image.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
-       
-          
-          topLabel.topAnchor.constraint(equalTo: topAnchor, constant: 50),
-          topLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-          topLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
       
-          bottomLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
-          bottomLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-          bottomLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-          bottomLabel.heightAnchor.constraint(equalToConstant: 85)])
+      image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
+      image.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 0),
+      image.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+      image.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
+      
+      
+      topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
+      topLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+      topLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+      
+      bottomLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+      bottomLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+      bottomLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+      bottomLabel.heightAnchor.constraint(equalToConstant: 85)])
   }
 }
