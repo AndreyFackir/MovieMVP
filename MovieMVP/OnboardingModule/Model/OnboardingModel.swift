@@ -5,7 +5,7 @@
 //  Created by Андрей Яфаркин on 04.10.2022.
 //
 
-import Foundation
+
 import UIKit
 
 struct OnboardingModel {

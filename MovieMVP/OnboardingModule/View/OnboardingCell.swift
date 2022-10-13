@@ -54,6 +54,7 @@ class OnboardingCell: UICollectionViewCell {
     image.image = model.image
   }
 }
+// MARK: - Setup
 
 extension OnboardingCell {
   private func setup() {
@@ -75,7 +76,6 @@ extension OnboardingCell {
       image.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 0),
       image.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
       image.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
-      
       
       topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
       topLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

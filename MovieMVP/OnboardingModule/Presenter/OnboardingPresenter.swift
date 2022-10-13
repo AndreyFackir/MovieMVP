@@ -5,7 +5,6 @@
 //  Created by Андрей Яфаркин on 05.10.2022.
 //
 
-import Foundation
 import UIKit
 
 protocol OnboardingViewProtocol: AnyObject {
@@ -41,7 +40,6 @@ class OnboardingPresenter: OnboardingViewPresenterProtocol {
       let index:IndexPath = [0, collectionItem]
       view?.setPageControlCurrentPage(index: index, collectionItem: collectionItem)
     }
-    
   }
   
   func saveUserDefaults() {
@@ -67,6 +65,4 @@ class OnboardingPresenter: OnboardingViewPresenterProtocol {
     onboardingArray = [firstScreen, secondScreen, thirdScreen]
     return onboardingArray
   }
-  
-  
 }

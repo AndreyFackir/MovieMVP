@@ -92,8 +92,7 @@ extension OnboardingViewController {
       onboardingCollection.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
       onboardingCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
       onboardingCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-      onboardingCollection.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: -20)
-    ])
+      onboardingCollection.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: -20)])
   }
 }
 //MARK: - UICollectionViewDataSource
