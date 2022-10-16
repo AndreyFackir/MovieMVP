@@ -5,10 +5,11 @@
 //  Created by Андрей Яфаркин on 09.10.2022.
 //
 
-import Foundation
+
 import UIKit
 
 extension UIViewController {
+  
   func alertFotoCamera(completion: @escaping (UIImagePickerController.SourceType) -> Void) {
     let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     let camera = UIAlertAction(title: "Camera", style: .default) { _ in

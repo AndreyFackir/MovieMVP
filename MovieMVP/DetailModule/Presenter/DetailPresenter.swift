@@ -15,7 +15,6 @@ protocol DetailViewProtocol: AnyObject {
   func saveToFavourites()
   func deleteFromFavourites()
   func databaseRequest()
-  
 }
 
 protocol DetailViewPresenterProtocol: AnyObject {
@@ -29,6 +28,7 @@ protocol DetailViewPresenterProtocol: AnyObject {
   func setCast()
   func saveToFavourites()
   func fetch() -> Results<Favourites>
+  func addGradient(to image: UIImageView, view: UIView)
 }
 
 class DetailPresenter: DetailViewPresenterProtocol {
@@ -157,5 +157,12 @@ class DetailPresenter: DetailViewPresenterProtocol {
     } catch {
       errorHandler(error)
     }
+  }
+  
+  func addGradient(to image: UIImageView, view: UIView) {
+    let gradeint = CAGradientLayer()
+    gradeint.colors = [UIColor.clear.cgColor, UIColor.systemBackground.cgColor]
+    gradeint.frame = view.bounds
+    image.layer.addSublayer(gradeint)
   }
 }

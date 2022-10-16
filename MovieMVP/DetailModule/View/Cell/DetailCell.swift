@@ -12,6 +12,7 @@ class DetailCell: UICollectionViewCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
     configureCell()
+    
   }
   
   required init?(coder: NSCoder) {
@@ -32,6 +33,7 @@ class DetailCell: UICollectionViewCell {
   }
   
   //MARK: - Actions
+  
   private func configureCell() {
     addSubview(actorImage)
     addSubview(actorRealName)

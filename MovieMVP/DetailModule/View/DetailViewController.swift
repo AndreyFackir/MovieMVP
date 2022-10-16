@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     super.viewDidLoad()
     setup()
     presenter.setDetails()
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +43,7 @@ class DetailViewController: UIViewController {
     element.image = UIImage(systemName: "film.stack")
     element.contentMode = .scaleAspectFit
     element.clipsToBounds = true
+    
     return element
   }()
   
@@ -226,6 +228,7 @@ private extension DetailViewController {
 //MARK: - DetailViewProtocol
 
 extension DetailViewController: DetailViewProtocol {
+  
   
   func saveToFavourites() {
     let savedImage = navigationController?.topViewController?.navigationItem.rightBarButtonItem

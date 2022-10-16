@@ -50,7 +50,7 @@ class OnboardingViewController: UIViewController {
     }
     let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collection.translatesAutoresizingMaskIntoConstraints = false
-    collection.backgroundColor = .specialBackground
+    collection.backgroundColor = .black
     collection.showsHorizontalScrollIndicator = false
     collection.isUserInteractionEnabled = false
     return collection

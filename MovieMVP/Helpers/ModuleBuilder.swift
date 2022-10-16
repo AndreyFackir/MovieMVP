@@ -78,5 +78,4 @@ class ModuleBuilder: Builder {
     view.presenter = presenter
     return view
   }
-  
 }
