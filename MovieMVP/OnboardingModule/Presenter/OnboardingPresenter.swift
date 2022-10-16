@@ -45,7 +45,9 @@ class OnboardingPresenter: OnboardingViewPresenterProtocol {
   func saveUserDefaults() {
     let userDefaults = UserDefaults.standard
     userDefaults.set(true, forKey: "OnboardingWasViewed")
-    view?.dismissVC()
+    if userDefaults.bool(forKey: "OnboardingWasViewed"){
+      view?.dismissVC()
+    }
   }
   
   func configureScreens() -> [OnboardingModel] {

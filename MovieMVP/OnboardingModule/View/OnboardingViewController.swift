@@ -113,6 +113,8 @@ extension OnboardingViewController: UICollectionViewDataSource {
 extension OnboardingViewController: OnboardingViewProtocol {
   func dismissVC() {
     dismiss(animated: true, completion: nil)
+    let mainVC = ModuleBuilder.createTabBar()
+    present(mainVC, animated: true, completion: nil)
   }
   
   func nextButtontapped() {

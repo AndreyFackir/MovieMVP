@@ -35,8 +35,6 @@ class MainViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    presenter.showOnboarding()
-    
   }
   
   //MARK: - Properties
@@ -206,11 +204,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 //MARK: - MainViewProtocol
 extension MainViewController: MainViewProtocol {
-  func showOnboarding() {
-    let onboardingVC = ModuleBuilder.createOnboardingModule()
-    onboardingVC.modalPresentationStyle = .fullScreen
-    present(onboardingVC, animated: true, completion: nil)
-  }
   
   func success() {
     collectionView.reloadData()

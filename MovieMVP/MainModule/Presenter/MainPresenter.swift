@@ -12,7 +12,6 @@ import RealmSwift
 protocol MainViewProtocol: AnyObject {
   func success()
   func failure(error: Error)
-  func showOnboarding()
 }
 
 protocol MainViewPresenterProtocol: AnyObject {
@@ -24,7 +23,6 @@ protocol MainViewPresenterProtocol: AnyObject {
   func convertedDateFormat(sourceString: String, sourceFormat: String, destinationFormat: String) -> String
   func getImage(from url: String, completion: @escaping(UIImage) -> Void)
   func fetch() -> Results<Favourites>
-  func showOnboarding()
 }
 
 class MainPresenter: MainViewPresenterProtocol {
@@ -81,13 +79,5 @@ class MainPresenter: MainViewPresenterProtocol {
   
   func fetch() -> Results<Favourites> {
     database.objects(Favourites.self)
-  }
-  
-  func showOnboarding() {
-    let userDefaults = UserDefaults.standard
-    let onboardingWasViewed = userDefaults.bool(forKey: "OnboardingWasViewed")
-    if !onboardingWasViewed {
-      view?.showOnboarding()
-    }
   }
 }
