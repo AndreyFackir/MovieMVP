@@ -1,6 +1,6 @@
 # MovieMVP
 
-IN PROGRESS
+Done!
 
 A movie application built with Swift 5 and UIKit where the user can watch newest movies and TVShows
 
