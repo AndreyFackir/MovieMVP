@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
     let layout = UICollectionViewCompositionalLayout { sectionNumber, env in
       let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0)))
       item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-      let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(250)), subitems: [item])
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(300)), subitems: [item])
       group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0)
       let section = NSCollectionLayoutSection(group: group)
       let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(

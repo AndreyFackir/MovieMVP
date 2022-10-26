@@ -14,7 +14,6 @@ class DetailViewController: UIViewController {
     super.viewDidLoad()
     setup()
     presenter.setDetails()
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -22,6 +21,7 @@ class DetailViewController: UIViewController {
     databaseRequest()
     success()
   }
+  
   
   //MARK: - Properties
   
@@ -43,7 +43,6 @@ class DetailViewController: UIViewController {
     element.image = UIImage(systemName: "film.stack")
     element.contentMode = .scaleAspectFit
     element.clipsToBounds = true
-    
     return element
   }()
   
