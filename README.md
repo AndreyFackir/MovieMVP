@@ -20,13 +20,14 @@ A movie application built with Swift 5 and UIKit where the user can watch newest
   <h3>Screenshots</h3> 
   
   ---
-  <p>
-  <img width="150" height="310" alt="Screenshot 2022-10-03 at 19 24 41" src="https://user-images.githubusercontent.com/104596263/193637003-abad91d5-60b2-49c7-a6ac-5b14fa94b403.png">
-  <img width="150" height="310" alt="Screenshot 2022-10-03 at 19 28 31" src="https://user-images.githubusercontent.com/104596263/193636979-eefc644a-fcdd-48ba-9649-fe459dd6f856.png">
-<img width="150" height="310" alt="Screenshot 2022-10-03 at 19 28 17" src="https://user-images.githubusercontent.com/104596263/193636985-c1c40d52-6075-4b6b-99d8-30500968c662.png">
-<img width="150" height="310" alt="Screenshot 2022-10-03 at 19 26 57" src="https://user-images.githubusercontent.com/104596263/193636996-56049f3d-8745-4957-a0f6-7071ce4a8364.png">
-   <img width="150" height="310" alt="Screenshot 2022-10-03 at 19 28 48" src="https://user-images.githubusercontent.com/104596263/193636825-1d6e1ada-6880-4e18-bf55-0acc4b4814a4.png">
-   <img width="150" height="310" alt="Снимок экрана 2022-10-09 в 17 10 56" src="https://user-images.githubusercontent.com/104596263/194761586-b7fc3642-7011-495d-a69f-801f43bfe164.png">
+  <p>   
+  
+<img width="150" height="310" alt="Simulator Screen Shot - iPhone 13 Pro Max - 2022-10-26 at 22 59 22" src="https://user-images.githubusercontent.com/104596263/198125347-68890ef4-676c-444b-bea9-46df3403ebf9.png">
+<img width="150" height="310" alt="Simulator Screen Shot - iPhone 13 Pro Max - 2022-10-26 at 22 58 45" src="https://user-images.githubusercontent.com/104596263/198125451-b7527b49-3f7e-4e3d-8909-58a5606a7aef.png">
+<img width="150" height="310" alt="Simulator Screen Shot - iPhone 13 Pro Max - 2022-10-26 at 22 58 50" src="https://user-images.githubusercontent.com/104596263/198125459-aa11bac8-7613-4f1e-8391-e2be808e4ba8.png">
+<img width="150" height="310" alt="Simulator Screen Shot - iPhone 13 Pro Max - 2022-10-26 at 22 59 31" src="https://user-images.githubusercontent.com/104596263/198125484-49f5a92a-ccda-4403-ac7d-785bea1afd1b.png">
+<img width="150" height="310" alt="Simulator Screen Shot - iPhone 13 Pro Max - 2022-10-26 at 23 01 12" src="https://user-images.githubusercontent.com/104596263/198125541-2b6653cb-dded-47eb-8b93-7a3a832c9ea4.png">
+<img width="150" height="310" alt="Simulator Screen Shot - iPhone 13 Pro Max - 2022-10-26 at 23 03 19" src="https://user-images.githubusercontent.com/104596263/198125673-17668df2-894e-4d9e-bed5-11e880137e80.png">
 
 <p>
 
