@@ -80,8 +80,8 @@ class DetailViewController: UIViewController {
         heightDimension: .fractionalHeight(1)))
       
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(
-        widthDimension: .absolute(70),
-        heightDimension: .absolute(70)), subitems: [item])
+        widthDimension: .fractionalHeight(0.5),
+        heightDimension: .fractionalHeight(0.5)), subitems: [item])
       
       let section = NSCollectionLayoutSection(group: group)
       section.interGroupSpacing = 10
