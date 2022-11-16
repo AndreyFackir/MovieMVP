@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class WebViewViewController: UIViewController {
+final class WebViewViewController: UIViewController {
   
   var presenter: WebViewPresenterProtocol!
   

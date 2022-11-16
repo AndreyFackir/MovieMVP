@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class FavouriteViewController: UIViewController {
+final class FavouriteViewController: UIViewController {
   var presenter: FavouritesViewPresenterProtocol!
  
   override func viewDidLoad() {
@@ -109,6 +109,4 @@ extension FavouriteViewController: FavouritesViewProtocol {
   func failure(error: Error) {
     print(error.localizedDescription)
   }
-  
-  
 }

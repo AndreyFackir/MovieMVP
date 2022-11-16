@@ -28,12 +28,9 @@ protocol DetailViewPresenterProtocol: AnyObject {
   func setCast()
   func saveToFavourites()
   func fetch() -> Results<Favourites>
-  func addGradient(to image: UIImageView, view: UIView)
 }
 
-class DetailPresenter: DetailViewPresenterProtocol {
-  
-  
+final class DetailPresenter: DetailViewPresenterProtocol {
   
   weak var view: DetailViewProtocol?
   let networkDataFetch: NetworkDataFetcherProtocol
@@ -42,7 +39,6 @@ class DetailPresenter: DetailViewPresenterProtocol {
   var serialAndMovieCast: SerialAndMoviesCast?
   let database = try! Realm()
   var isFavourite = false
-  
   
   required init(view: DetailViewProtocol, networkDataFetch: NetworkDataFetcherProtocol, movie: Movies?, serial: TVShows?) {
     self.view = view
@@ -100,7 +96,7 @@ class DetailPresenter: DetailViewPresenterProtocol {
   
   func saveToFavourites() {
     let favourites = Favourites()
-   
+    
     if movie == nil {
       favourites.id = serial?.id ?? 0
       favourites.favouriteMovieImageUrl = getSerialAndMovieString()
@@ -122,7 +118,7 @@ class DetailPresenter: DetailViewPresenterProtocol {
     }
     isFavourite = !isFavourite
   }
- 
+  
   func save(object: Favourites, _ errorHandler: @escaping ((_ error: Swift.Error) -> Void) = { _ in return }) {
     let results = fetch()
     guard !results.contains(where: {$0.id == object.id}) else {
@@ -157,12 +153,5 @@ class DetailPresenter: DetailViewPresenterProtocol {
     } catch {
       errorHandler(error)
     }
-  }
-  
-  func addGradient(to image: UIImageView, view: UIView) {
-    let gradeint = CAGradientLayer()
-    gradeint.colors = [UIColor.clear.cgColor, UIColor.systemBackground.cgColor]
-    gradeint.frame = view.bounds
-    image.layer.addSublayer(gradeint)
   }
 }

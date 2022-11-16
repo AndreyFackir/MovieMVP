@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailCell: UICollectionViewCell {
+final class DetailCell: UICollectionViewCell {
   
   override init(frame: CGRect) {
     super.init(frame: frame)

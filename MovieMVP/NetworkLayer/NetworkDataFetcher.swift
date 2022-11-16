@@ -13,7 +13,7 @@ protocol NetworkDataFetcherProtocol {
   func fetchSerialAndMovieCast(url: String, completion: @escaping (SerialAndMoviesCast?) -> Void)
 }
 
-class NetworkDataFetcher: NetworkDataFetcherProtocol {
+final class NetworkDataFetcher: NetworkDataFetcherProtocol {
   func fetchDataMovies(url: String, response: @escaping (MovieModel?) -> Void) {
     NetworkService.request(urlString: url) { result in
       switch result {

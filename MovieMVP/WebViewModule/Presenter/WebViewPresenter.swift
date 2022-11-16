@@ -18,7 +18,7 @@ protocol WebViewPresenterProtocol: AnyObject {
 }
 
 //MARK: - WebViewPresenter
-class WebViewPresenter: WebViewPresenterProtocol {
+final class WebViewPresenter: WebViewPresenterProtocol {
   
   weak var view: WebViewProtocol?
   var movie: Movies?

@@ -19,7 +19,7 @@ protocol Builder {
   static func createOnboardingModule() -> UIViewController
 }
 
-class ModuleBuilder: Builder {
+final class ModuleBuilder: Builder {
   
   static func createTabBar() -> UITabBarController {
     let view = MainTabbarViewController()

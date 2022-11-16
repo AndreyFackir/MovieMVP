@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavouriteCell: UICollectionViewCell {
+final class FavouriteCell: UICollectionViewCell {
   
   override init(frame: CGRect) {
     super.init(frame: frame)

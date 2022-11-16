@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleSupplementaryView: UICollectionReusableView {
+final class TitleSupplementaryView: UICollectionReusableView {
   
   let headerLabel = UILabel()
   

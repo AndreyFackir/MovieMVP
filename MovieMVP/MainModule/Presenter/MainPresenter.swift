@@ -25,7 +25,7 @@ protocol MainViewPresenterProtocol: AnyObject {
   func fetch() -> Results<Favourites>
 }
 
-class MainPresenter: MainViewPresenterProtocol {
+final class MainPresenter: MainViewPresenterProtocol {
   weak var view: MainViewProtocol?
   let netWorkDataFetch: NetworkDataFetcherProtocol
   var movies: MovieModel?

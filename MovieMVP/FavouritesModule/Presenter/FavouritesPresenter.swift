@@ -20,7 +20,7 @@ protocol FavouritesViewPresenterProtocol: AnyObject {
   func fetchFavourites() -> Results<Favourites>
 }
 
-class FavouritesPresenter: FavouritesViewPresenterProtocol {
+final class FavouritesPresenter: FavouritesViewPresenterProtocol {
   weak var view: FavouritesViewProtocol?
   let networkDataFetch: NetworkDataFetcherProtocol
   let database = try! Realm()

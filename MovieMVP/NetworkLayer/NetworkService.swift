@@ -11,7 +11,7 @@ protocol NetworkServiceProtocol {
   static func request(urlString: String, completion: @escaping(Result<Data, Error>) -> Void)
 }
 
-class NetworkService: NetworkServiceProtocol {
+final class NetworkService: NetworkServiceProtocol {
   
   static func request(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
     guard let url = URL(string: urlString) else { return }

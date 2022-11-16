@@ -19,7 +19,7 @@ protocol OnboardingViewPresenterProtocol: AnyObject {
   func configureScreens() -> [OnboardingModel]
 }
 
-class OnboardingPresenter: OnboardingViewPresenterProtocol {
+final class OnboardingPresenter: OnboardingViewPresenterProtocol {
   
   weak var view: OnboardingViewProtocol?
   var onboardingModel: OnboardingModel?

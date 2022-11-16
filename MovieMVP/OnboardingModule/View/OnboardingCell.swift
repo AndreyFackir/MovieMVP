@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingCell: UICollectionViewCell {
+final class OnboardingCell: UICollectionViewCell {
   
   override init(frame: CGRect) {
     super.init(frame: frame)

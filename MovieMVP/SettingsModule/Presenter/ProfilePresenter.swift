@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 protocol ProfileViewProtocol: AnyObject {
   func addTapToChooseImage()
   func loadUserInfo()
@@ -19,7 +20,7 @@ protocol ProfileViewPresenterProtocol: AnyObject {
   func loadUserInfo()
 }
 
-class ProfilePresenter: ProfileViewPresenterProtocol {
+final class ProfilePresenter: ProfileViewPresenterProtocol {
   weak var view: ProfileViewProtocol?
   
   required init(view: ProfileViewProtocol) {
